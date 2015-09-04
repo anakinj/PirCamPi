@@ -1,10 +1,12 @@
 var log = require('./log');
 var util = require('util');
 var child_process = require('child_process');
+var config = require('./config');
+var path = require('path');
 
 module.exports = {
   raspistill: function() {
-    var filename = './photo/image_' + new Date().toISOString() + '.jpg';
+    var filename = path.join(config.storage, 'image_' + new Date().toISOString() + '.jpg');
     var args = ['-w', '320', '-h', '240', '-o', filename, '-t', '1'];
 
     child_process.spawn('raspistill', args).on('exit', function(code) {
@@ -12,8 +14,8 @@ module.exports = {
     });
   },
   raspivid: function(onClose) {
-    var filename = './photo/video_' + new Date().toISOString() + '.h264';
-    var args = ['-o', filename, '-t', '60000'];
+    var filename = path.join(config.storage, 'video_' + new Date().toISOString() + '.h264');
+    var args = ['-o', filename, '-t', config.maxVideoDuration  || '60000'];
 
     var spawn = child_process.spawn('raspivid', args)
 

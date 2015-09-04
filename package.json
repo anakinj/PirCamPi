@@ -1,0 +1,14 @@
+{
+  "name": "node_cam",
+  "version": "1.0.0",
+  "description": "RasPi cam on PIRi",
+  "main": "app.js",
+  "author": "Joakim Antman (antmanj@gmail.com)",
+  "license": "MIT",
+  "dependencies": {
+    "cloudinary": "^1.2.4",
+    "johnny-five": "^0.8.89",
+    "raspi-io": "^3.3.5",
+    "winston": "^1.0.1"
+  }
+}

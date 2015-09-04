@@ -1,5 +1,5 @@
 {
-  "name": "node_cam",
+  "name": "CamPirPi",
   "version": "1.0.0",
   "description": "RasPi cam on PIRi",
   "main": "app.js",
